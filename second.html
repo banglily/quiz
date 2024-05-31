@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Largest Number</title>
+</head>
+<body>
+    <script>
+        function secondLargest(numbers) {
+            if (numbers.length < 2) {
+                return null; // If the array has fewer than 2 elements, return null
+            }
+            
+            let first = -Infinity, second = -Infinity;
+            for (let number of numbers) {
+                if (number > first) {
+                    second = first;
+                    first = number;
+                } else if (number > second && number < first) {
+                    second = number;
+                }
+            }
+            return second;
+        }
+
+        console.log(secondLargest([10, 5, 20, 8])); // Output: 10
+        console.log(secondLargest([1, 2, 3, 4, 5])); // Output: 4
+    </script>
+</body>
+</html>
